@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def hello
-    binding.pry
     redirect_to login_path if !session[:name]
   end
 end
