@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def create
     if !params[:name].present?
       render :new
-    else 
+    else
       session[:name] = params[:name]
       redirect_to '/'
     end
