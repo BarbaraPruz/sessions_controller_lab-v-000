@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if params[:name].present?
+    if !params[:name].present?
+      render :new
+    else 
       session[:name] = params[:name]
       redirect_to '/'
-    else
-      render 'new'
     end
   end
 
