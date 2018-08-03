@@ -2,13 +2,15 @@ require 'pry'
 class SessionsController < ApplicationController
 
   def new
-    binding.pry
   end
 
   def create
-    binding.pry
-    session[:name] = params[:name] if params[:name].present?
-    redirect_to '/'
+    if params[:name].present?
+      session[:name] = params[:name]
+      redirect_to '/'
+    else
+      render 'new'
+    end
   end
 
   def destroy
